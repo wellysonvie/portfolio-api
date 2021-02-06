@@ -25,7 +25,7 @@ class APIController
         $contactText = trim(filter_input(INPUT_POST, "message", FILTER_SANITIZE_STRIPPED));
 
         if (!$contactEmail || empty($contactName) || empty($contactText)) {
-            json_response(400, 'Bad request');
+            json_response(400, 'Bad request! Invalid email or empty name and message.');
             return;
         }
 
@@ -33,7 +33,6 @@ class APIController
         $message->name = $contactName;
         $message->email = $contactEmail;
         $message->text = $contactText;
-        $message->save();
 
         $client = new \GuzzleHttp\Client();
         $response = $client->request('POST', 'https://api.telegram.org/bot' . TELEGRAM['bot_token'] . '/sendMessage', [
@@ -44,6 +43,10 @@ class APIController
             ]
         ]);
 
-        json_response($response->getStatusCode(), (DEBUG ? json_decode($response->getBody()) : 'Message sent successfully!'));
+        if($message->save() && $response->getStatusCode() == 200){
+            json_response(200, 'Message sent successfully!');
+        }else{
+            json_response(500, (DEBUG ? json_decode($response->getBody()) : 'Internal Server Error'));
+        }
     }
 }
