@@ -9,7 +9,7 @@ class APIController
 {
     public function getProjects()
     {
-        $projects = (new Project())->find()->order("created_at DESC")->fetch(true);
+        $projects = (new Project())->find()->fetch(true);
 
         json_response(200, $projects);
     }
