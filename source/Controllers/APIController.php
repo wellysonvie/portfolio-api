@@ -9,9 +9,7 @@ class APIController
 {
     public function getProjects()
     {
-        $projects = (new Project())->find()->fetch(true);
-
-        var_dump($projects);
+        $projects = (new Project())->find()->fetch()->data();
 
         json_response(200, $projects);
     }
