@@ -1,0 +1,23 @@
+{
+    "name": "wellyson/portifolio-api",
+    "description": "API do site de portifolio pessoal",
+    "authors": [
+        {
+            "name": "wellysonvie",
+            "email": "wellysonvie@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Source\\": "source/"
+        },
+        "files": [
+            "source/Config.php"
+        ]
+    },
+    "require": {
+        "coffeecode/router": "^1.0",
+        "coffeecode/datalayer": "^1.1",
+        "guzzlehttp/guzzle": "^7.2"
+    }
+}
