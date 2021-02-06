@@ -38,14 +38,10 @@ function json_response($code = 200, $data = null)
     header_remove();
 
     header('Access-Control-Allow-Origin: *'); 
-    header("Access-Control-Allow-Credentials: true");
-    header('Access-Control-Allow-Methods: GET, PUT, POST, DELETE, OPTIONS');
-    header('Access-Control-Max-Age: 1000');
-    header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token , Authorization');
-
-    http_response_code($code);
     header("Cache-Control: no-transform,public,max-age=300,s-maxage=900");
     header('Content-Type: application/json');
+
+    http_response_code($code);
 
     echo json_encode($data);
 }
