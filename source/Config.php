@@ -1,16 +1,16 @@
 <?php
 
-define("DEBUG", true);
+define("DEBUG", false);
 
-define("BASE_URL", "http://localhost/portifolio-api");
+define("BASE_URL", "https://portifolio-api.herokuapp.com");
 
 define("DATA_LAYER_CONFIG", [
     "driver" => "pgsql",
-    "host" => "",
+    "host" => getenv("DB_HOST"),
     "port" => "5432",
-    "dbname" => "",
-    "username" => "",
-    "passwd" => "",
+    "dbname" => getenv("DB_DATABASE"),
+    "username" => getenv("DB_USER"),
+    "passwd" => getenv("DB_PASSWORD"),
     "options" => [
         PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8",
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
@@ -20,8 +20,8 @@ define("DATA_LAYER_CONFIG", [
 ]);
 
 define("TELEGRAM", [
-    "bot_token" => "",
-    "chat_id" => ""
+    "bot_token" => getenv("TELEGRAM_BOT_TOKEN"),
+    "chat_id" => getenv("TELEGRAM_CHAT_ID")
 ]);
 
 if (!DEBUG) {
