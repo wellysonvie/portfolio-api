@@ -24,8 +24,8 @@ class APIController
         $contactEmail = filter_input(INPUT_POST, "email", FILTER_VALIDATE_EMAIL);;
         $contactText = trim(filter_input(INPUT_POST, "message", FILTER_SANITIZE_STRIPPED));
 
-        if (!$contactEmail) {
-            json_response(400, 'Invalid email.');
+        if (!$contactEmail || empty($contactName) || empty($contactText)) {
+            json_response(400, 'Bad request');
             return;
         }
 
