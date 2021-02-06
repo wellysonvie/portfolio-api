@@ -9,8 +9,12 @@ class APIController
 {
     public function getProjects()
     {
-        $projects = (new Project())->find()->fetch(true)->data();
+        $projects = (new Project())->find()->fetch(true);
 
+        $projects = array_map(function ($item) {
+            return $item->data();
+        }, $projects);
+        
         json_response(200, $projects);
     }
 
