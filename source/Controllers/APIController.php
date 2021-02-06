@@ -11,6 +11,8 @@ class APIController
     {
         $projects = (new Project())->find()->fetch(true);
 
+        var_dump($projects);
+
         json_response(200, $projects);
     }
 
