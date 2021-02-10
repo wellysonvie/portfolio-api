@@ -9,7 +9,7 @@ class APIController
 {
     public function getProjects()
     {
-        $projects = (new Project())->find()->fetch(true);
+        $projects = (new Project())->find()->order("created_at DESC")->fetch(true);
 
         $projects = array_map(function ($item) {
             return $item->data();
