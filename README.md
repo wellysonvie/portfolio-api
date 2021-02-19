@@ -2,7 +2,7 @@
 API do site de portfólio pessoal
 
 ## Rotas
-- URL: https://portifolio-api.herokuapp.com
+- URL: https://wellysonvie-portfolio-api.herokuapp.com
 
 | Verbo | URI | Body | Ação |
 |------|--------------|----------------|------------------|
