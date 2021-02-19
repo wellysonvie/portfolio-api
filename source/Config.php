@@ -2,7 +2,7 @@
 
 define("DEBUG", false);
 
-define("BASE_URL", "https://portifolio-api.herokuapp.com");
+define("BASE_URL", "https://wellysonvie-portfolio-api.herokuapp.com");
 
 define("DATA_LAYER_CONFIG", [
     "driver" => "pgsql",
