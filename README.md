@@ -1,5 +1,5 @@
-# portifolio-api
-API do site de portifólio pessoal
+# portfolio-api
+API do site de portfólio pessoal
 
 ## Rotas
 - URL: https://portifolio-api.herokuapp.com
